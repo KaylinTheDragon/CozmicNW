@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.kaylin.cozmic.commands.ColorCommand;
 import me.kaylin.cozmic.managers.DataManager;
 import me.kaylin.cozmic.managers.InventoryManager;
 import me.kaylin.cozmic.managers.ItemManager;
@@ -24,6 +25,16 @@ public class Main extends JavaPlugin {
 		//Reload Data File
 		DataManager.reloadConfig();
 		this.data = new DataManager(this);
+		
+		//Initilise Managers
+		itemManager.init();
+		invManager.init();
+		
+		//Initilise Commands
+		getCommand("color").setExecutor(new ColorCommand());
+		
+		//Initilise Events
+		getServer().getPluginManager().registerEvents(new ColorCommand(), this);
 		
 	}
 	
