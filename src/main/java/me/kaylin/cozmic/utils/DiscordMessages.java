@@ -28,7 +28,7 @@ public class DiscordMessages {
         chatChannel2.sendMessage(content).queue();
 
     }
-    public static void discordEmbeddedMessage(String username, String content, String avatarurl, String webhookurl) {
+    public static void discordWebhook(String username, String content, String avatarurl, String webhookurl) {
         WebhookClientBuilder builder = new WebhookClientBuilder(webhookurl); // or id, token
         builder.setThreadFactory((job) -> {
             Thread thread = new Thread(job);
