@@ -1,7 +1,6 @@
 package me.kaylin.cozmic;
 
 import me.kaylin.cozmic.discord.DiscordEvents;
-import me.kaylin.cozmic.discord.Events;
 import me.kaylin.cozmic.discord.SpigotEvents;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
