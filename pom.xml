@@ -3,7 +3,7 @@
   <groupId>CozmicNW</groupId>
   <artifactId>CozmicNW</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>CozmicNW</name>
+    <name>CozmicNW</name>
   <description>Plugin for Minehut Network CozmicNW</description>
  <repositories>
     <!-- This adds the Spigot Maven repository to the build -->
@@ -32,5 +32,16 @@
            <version>5.0.0-alpha.9</version>
            <scope>provided</scope>
        </dependency>
-	</dependencies>
+       <!-- https://mvnrepository.com/artifact/club.minnced/discord-webhooks -->
+       <dependency>
+           <groupId>club.minnced</groupId>
+           <artifactId>discord-webhooks</artifactId>
+           <version>0.7.5</version>
+       </dependency>
+       <dependency>
+           <groupId>org.jetbrains</groupId>
+           <artifactId>annotations</artifactId>
+           <version>16.0.1</version>
+       </dependency>
+   </dependencies>
 </project>
