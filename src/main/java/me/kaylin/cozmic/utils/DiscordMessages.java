@@ -7,7 +7,7 @@ import org.bukkit.Color;
 
 public class DiscordMessages {
     public static JDA jda;
-    public void discordEmbeddedMessage(String author, String content, String footer, String iconurl, String url, Color color, String discordChannel) {
+    public static void discordEmbeddedMessage(String author, String content, String footer, String iconurl, String url, Color color, String discordChannel) {
         TextChannel chatChannel2;
         chatChannel2 = jda.getTextChannelById(discordChannel);
         if (chatChannel2 == null) return;
@@ -17,7 +17,7 @@ public class DiscordMessages {
                 .setFooter(footer);
         chatChannel2.sendMessageEmbeds(builder.build()).queue();
     }
-    public void discordNonEmbeddedMessage(String content, String discordChannel) {
+    public static void discordNonEmbeddedMessage(String content, String discordChannel) {
         TextChannel chatChannel2;
         chatChannel2 = jda.getTextChannelById(discordChannel);
         if (chatChannel2 == null) return;
