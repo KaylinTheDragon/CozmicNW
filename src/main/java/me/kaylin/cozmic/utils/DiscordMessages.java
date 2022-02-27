@@ -11,6 +11,8 @@ import org.bukkit.Color;
 public class DiscordMessages {
     public static JDA jda;
     static WebhookClient client;
+
+
     public static void discordEmbeddedMessage(String author, String content, String footer, String iconurl, String url, Color color, String discordChannel) {
         TextChannel chatChannel2;
         chatChannel2 = jda.getTextChannelById(discordChannel);
@@ -21,13 +23,14 @@ public class DiscordMessages {
                 .setFooter(footer);
         chatChannel2.sendMessageEmbeds(builder.build()).queue();
     }
+
     public static void discordNonEmbeddedMessage(String content, String discordChannel) {
         TextChannel chatChannel2;
         chatChannel2 = jda.getTextChannelById(discordChannel);
         if (chatChannel2 == null) return;
         chatChannel2.sendMessage(content).queue();
-
     }
+
     public static void discordWebhook(String username, String content, String avatarurl, String webhookurl) {
         WebhookClientBuilder builder = new WebhookClientBuilder(webhookurl); // or id, token
         builder.setThreadFactory((job) -> {
@@ -44,4 +47,5 @@ public class DiscordMessages {
         builder2.setContent(content);
         client.send(builder2.build());
     }
+
 }
