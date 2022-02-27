@@ -20,6 +20,6 @@ public final class DiscordEvents extends ListenerAdapter {
 
         String message = event.getMessage().getContentDisplay();
         // And finally sending the message
-        Bukkit.broadcastMessage(ChatColor.WHITE + "<" + member.getEffectiveName() + ">" + ChatColor.RESET + " " + message);
+        Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "Discord" + ChatColor.GRAY + "] " + ChatColor.WHITE + member.getEffectiveName() + ":" + ChatColor.RESET + " " + message);
     }
 }
