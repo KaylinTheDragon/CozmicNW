@@ -8,6 +8,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+
 import me.kaylin.cozmic.commands.ColorCommand;
 import me.kaylin.cozmic.managers.DataManager;
 import me.kaylin.cozmic.managers.InventoryManager;
@@ -20,6 +24,7 @@ public class Main extends JavaPlugin {
 
 	public static JDA jda;
 	public static LuckPerms api;
+	public static MongoDatabase database;
 	public DataManager data = new DataManager(this);
 	public static ItemManager itemManager = new ItemManager();
 	public static InventoryManager invManager = new InventoryManager();
@@ -39,6 +44,19 @@ public class Main extends JavaPlugin {
 		} catch (LoginException e) {
 			e.printStackTrace();
 		}
+		
+		//Grabbing mongoClient connection string
+		String connectionString = getConfig().getString("connection-string");
+
+
+        try {
+            MongoClient mongoClient = MongoClients.create(connectionString);
+            database = mongoClient.getDatabase("plugin");
+        }
+        catch (Exception exception) {
+            getLogger().warning("Failed to connect to database.\n" + connectionString);
+            exception.printStackTrace();
+        }
 
 		//Registers Luckperms API
 		RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);

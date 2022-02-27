@@ -36,10 +36,7 @@ public class ReportCommand implements CommandExecutor {
 					DiscordMessages.discordEmbeddedMessage(argumentPlayer.getDisplayName(), "Player was reported by " + player.getDisplayName() + " for '" + msg + "'.", "Date: " + date.toString(), null, null, Color.BLACK, reportChannel);
 				}
 			}
-			
-			player.sendMessage(label);
 		}
-		
 		return false;
 	}
 
