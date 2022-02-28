@@ -35,7 +35,7 @@ public class DiscordSpigotCommands extends ListenerAdapter {
                 EmbedBuilder fail = new EmbedBuilder();
                 fail.setTitle("🔴 Missing second argument");
                 fail.setDescription("Usage: `~c [command]`");
-                fail.setFooter("~clear");
+                fail.setFooter("~c");
 
                 event.getChannel().sendTyping().queue();
                 event.getChannel().sendMessageEmbeds(fail.build()).queue((m -> m.delete().queueAfter(3, TimeUnit.SECONDS)));
@@ -50,7 +50,7 @@ public class DiscordSpigotCommands extends ListenerAdapter {
 
                 EmbedBuilder Success = new EmbedBuilder();
                 Success.setTitle("✅ Sent " + command);
-                Success.setFooter("~clear");
+                Success.setFooter("~c");
 
                 event.getChannel().sendMessageEmbeds(Success.build()).queue((m -> m.delete().queueAfter(3, TimeUnit.SECONDS)));
                 event.getMessage().delete().queueAfter(3, TimeUnit.SECONDS);
