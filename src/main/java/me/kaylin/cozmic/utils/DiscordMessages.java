@@ -38,7 +38,9 @@ public class DiscordMessages {
             thread.setName("Webhook-Thread");
             thread.setDaemon(true);
             return thread;
+
         });
+
         builder.setWait(true);
         client = builder.build();
         WebhookMessageBuilder builder2 = new WebhookMessageBuilder();
